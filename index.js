@@ -13,9 +13,12 @@ mongoose.connect(process.env.DB_CONNECT, () => {
 
 // ! import Routers
 const authRouter = require("./routes/auth");
+const postRouter = require("./routes/post");
 
 app.use(express.json());
 app.use("/api/user", authRouter);
+app.use("/api/posts", postRouter);
+
 app.listen(3000, () => {
   console.log("Server is running at 3000");
 });
